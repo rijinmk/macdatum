@@ -1,7 +1,7 @@
 import time
 import os 
 
-command_file = "s.txt"
+command_file = "/Users/rijinmk/Dropbox/RED-MALUS/commands.txt"
 
 h = [os.path.getmtime(command_file)]
 while True: 
