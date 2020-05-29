@@ -1,11 +1,9 @@
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize 
 
-s = "Nandana is a dumbass and Rijin is a smart ass"
-sw = set(stopwords.words("english"))
-w = word_tokenize(s)
-f = []
-for i in w: 
-    if i not in sw: 
-        f.append(i)
-print(' '.join(f))
+ps = PorterStemmer()
+
+example_words = ["Pythoning", "Pythoner", "Pythoning", "Pythonly"]
+
+for i in example_words: 
+    print(ps.stem(i))
