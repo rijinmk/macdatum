@@ -1,4 +1,5 @@
 import nltk 
+import time
 from nltk.corpus import state_union
 from nltk.tokenize import PunktSentenceTokenizer
 
@@ -10,13 +11,11 @@ tkn = cst.tokenize(s)
 
 def process_content():
     try: 
-        for i in tkn: 
-            w = nltk.word_tokenize(i)
-            tagged = nltk.pos_tag(w)
-            chunkGram = r"""Chunk: {<RB.?>*<VB.?>*<NNP>+<NN>?}"""
-            chunkParser = nltk.RegexpParser(chunkGram)
-            chunked = chunkParser.parse(tagged)
-            chunked.draw()
+        w = nltk.word_tokenize(tkn[1])
+        tagged = nltk.pos_tag(w)
+        chunkGram = r"""Chunk: {<RB.?>*<VB.?>*<NNP>+<NN>?}"""
+        chunkParser = nltk.RegexpParser(chunkGram)
+        print(chunkParser)
 
     except Exception as e: 
         print("Error", e)
